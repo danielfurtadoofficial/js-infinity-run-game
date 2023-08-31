@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv = "Content-Type" content = "text/html; charset=UTF-8" >
+	<title> Kasu Body Run | Edit Profile</title>
+	<link rel="stylesheet"  type="text/css" href="css/loader.css">
+	<link rel="stylesheet"  type="text/css" href="css/index.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet"  type="text/css" href="css\fontawesome-free-5.15.3-web\css\all.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@300&display=swap" rel="stylesheet">
+	<link rel="icon" type="imagem/png" href="img/killer.gif">
+	<script>
+		if(localStorage.getItem('register')!="done"){
+			window.location.href='index.html';
+		}
+	</script>
+	
+</head>
+<body>
+
+	<!-- :::::::::  LOADER :::::::::::::-->
+	<center>
+		<div id="loader">
+			<div class="preloader">
+				<div class="preloader__ring">
+				  <div class="preloader__sector"><p class="p_animation">L</p></div>
+				  <div class="preloader__sector"><p class="p_animation">o</p></div>
+				  <div class="preloader__sector"><p class="p_animation">a</p></div>
+				  <div class="preloader__sector"><p class="p_animation">d</p></div>
+				  <div class="preloader__sector"><p class="p_animation">i</p></div>
+				  <div class="preloader__sector"><p class="p_animation">n</p></div>
+				  <div class="preloader__sector"><p class="p_animation">g</p></div>
+				  <div class="preloader__sector"><p class="p_animation">.</p></div>
+				  <div class="preloader__sector"><p class="p_animation">.</p></div>
+				  <div class="preloader__sector"><p class="p_animation">.</p></div>
+				</div>
+			
+				<div class="preloader__ring">
+				  <div class="preloader__sector"><p class="p_animation">K</p></div>
+				  <div class="preloader__sector"><p class="p_animation">A</p></div>
+				  <div class="preloader__sector"><p class="p_animation">S</p></div>
+				  <div class="preloader__sector"><p class="p_animation">U</p></div>
+				  <div class="preloader__sector"><p class="p_animation"></p></div>
+				  <div class="preloader__sector"><p class="p_animation">B</p></div>
+				  <div class="preloader__sector"><p class="p_animation">O</p></div>
+				  <div class="preloader__sector"><p class="p_animation">D</p></div>
+				  <div class="preloader__sector"><p class="p_animation">Y</p></div>
+				  <div class="preloader__sector"><p class="p_animation"></p></div>
+				  <div class="preloader__sector"><p class="p_animation">R</p></div>
+				  <div class="preloader__sector"><p class="p_animation">U</p></div>
+				  <div class="preloader__sector"><p class="p_animation">N</p></div>
+				</div>
+			  </div>
+		</div>
+	</center>
+	<!-- :::::::::::::::::::::::::::::::-->
+    
+    <div id="home">
+		<div id="register" class="camada_home" data data-tilt="10">
+			<div class="escurecer"></div>
+			<center style="transform: translateZ(80px);">
+				<br><br><h1>EDIT PROFILE</h1><br>
+				
+				<a href="start.html"><button class="submit" style="margin-top: 0px; margin-left: 0px;"><i class="fas fa-arrow-left"></i>Back</button></a><br>
+				
+				<form action="edit_profile.html" method="GET">
+					
+					<input class="form_input" type="text" id="username" name="username" placeholder="Username" autocomplete="off" autofocus="off" value="" readonly><br>
+					<input class="form_input" type="text" id="name" name="name" placeholder="Your Name" autocomplete="off" autofocus="off" value="" required><br>
+					<select class="form_input" name="island" id="island" placeholder="Island" autofocus="off" style="width: 205px;" required>
+						<option value="Santiago">Santiago</option>
+						<option value="Maio">Maio</option>
+						<option value="Fogo">Fogo</option>
+						<option value="Brava">Brava</option>
+						<option value="Sal">Sal</option>
+						<option value="Sao Nicolau">São Nicolau</option>
+						<option value="Boa Vista">Boa Vista</option>
+						<option value="Sao Vicente">São Vicente</option>
+						<option value="Santo Antao">Santo Antão</option>
+					</select><br><br>
+					<input class="submit" type="submit" value="Save" style="margin-left: 0px;"><br>
+				</form>
+			</center>
+		</div>
+
+	<div>
+		<audio id="demo" src="audio/audio2.mp3" loop="true"></audio>
+		<i id="play" style="display: none;" onclick="play()" class="fas fa-volume-mute"></i>
+		<i id="pause" class="fas fa-volume-up" onclick="pause()"></i>
+	</div>
+
+
+
+    <script type="text/javascript" src="js/vanilla-tilt.js"></script>
+	<script type="text/javascript" src="js/loader.js"></script>
+	<script>
+	
+		document.getElementById("username").value=localStorage.getItem('username');
+		document.getElementById("name").value=localStorage.getItem('name'); 
+
+		let dados = location.search.slice(1);
+
+		if(dados!=null){
+
+			let dado = dados.split('&');
+
+			dado.forEach(function (content){
+				let key = content.split('=');
+				let param = key[0];
+				let valor = key[1];
+
+				while(valor.indexOf("+")!=-1){
+					valor = valor.replace('+', ' ');
+				}
+					
+				while(valor.indexOf("%40")!=-1){	
+					valor = valor.replace('%40', '@');
+				}
+
+				localStorage.setItem(param, valor);
+			});
+
+			window.location.href='start.html';
+
+		}
+	
+		
+
+		
+	</script>
+	<script type="text/javascript">
+		function play(){
+			document.getElementById('demo').volume=0.3;
+			document.getElementById('demo').pause();
+			document.getElementById('play').style.display='none';
+			document.getElementById('pause').style.display='block';
+		}
+
+		function pause(){
+			document.getElementById('demo').play();
+			document.getElementById('pause').style.display='none';
+			document.getElementById('play').style.display='block';
+		}
+	</script>
+</body>
+</html>

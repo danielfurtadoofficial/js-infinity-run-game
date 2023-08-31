@@ -1,0 +1,528 @@
+
+@font-face {
+    font-family: Reggae One;
+    src: url('ReggaeOne-Regular.ttf');
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Reggae One', cursive;
+}
+
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+
+.records{
+    position: relative;
+    width: 300px;
+    margin-top: 20px;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.808);
+    font-family: 'Reggae One', cursive;
+    color: red;
+    transition: ease 0.4s;
+    font-size: 10px;
+}
+
+.history{
+    position: relative;
+    width: 80%;
+    margin-top: 20px;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.808);
+    font-family: 'Reggae One', cursive;
+    color: red;
+    display: inline-block;
+    transition: ease 0.4s;
+    font-size: 10px;
+}
+
+.history p{
+    display: inline-block;
+    width: 150px;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+.records p{
+    display: inline-block;
+    width: 50px;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+.record{
+    color: white!important;
+    margin-top: 10px;
+    padding: 0px;
+}
+
+.record2{
+    color: white!important;
+    margin-top: 10px;
+    padding: 0px;
+}
+
+p{
+    color: red;
+    font-size: 12px;
+    margin-top: -40px;
+    width: 50%;
+    padding: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.escurecer2{
+    position: relative;
+    margin-top: 0;
+    margin-left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.849);
+}
+
+.player{
+    position: relative;
+    width: 30%;
+    height: 250px;
+    border: 0px solid red;
+    display: inline-block;
+    border-radius: 3px;
+    margin-top: 20px;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.player:hover{
+    border: 1px solid red;
+}
+
+.player:focus{
+    border: 1px solid red;
+}
+
+#play{
+	position: fixed;
+	top: 30px;
+	right: 4%;
+	color: #ed0101;
+    z-index: 100;
+    transform: translateZ(100px);
+}
+
+#pause{
+	position: fixed;
+	top: 30px;
+	right: 4%;
+	color: #ed0101;
+    z-index: 100;
+    transform: translateZ(100px);
+}
+
+::placeholder {
+    color: rgb(255, 255, 255);
+    opacity: 1; /* Firefox */
+    font-weight: 100;
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: rgb(255, 255, 255);
+   font-weight: 100;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+   color: rgb(255, 255, 255);
+   font-weight: 100;
+  }
+
+#home{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgb(0, 0, 0);
+    width: 100%;
+    height: 100%;
+}
+
+.escurecer{
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: rgba(100, 100, 100, 0);
+    border-radius: 3px;
+}
+
+.camada_home{
+    position: relative;
+    top: 10%;
+    width: 50%;
+    height: 80%;
+    left: 25%;
+    border-radius: 3px;
+    border: 1px solid red;
+    color: white;
+    background: url("../img/bg_perfeito1.gif");
+    background-size: 40% 100%;
+    perspective: 1500px;
+    transform-style: preserve-3d;
+}
+
+.form_input{
+    position: relative;
+    width: 200px;
+    height: 6vh;
+    margin-top: 20px;
+    border-radius: 3px;
+    border: none;
+    font-family: 'Reggae One', cursive;
+    color: white;
+    background: rgb(0, 0, 0);
+    font-size: 12px;
+}
+
+.form_input:focus{
+    box-shadow: 2px 2px 2px red;
+    border: none;
+}
+
+.submit{
+    position: relative;
+    width: 200px;
+    height: 50px;
+    margin-top: 20px;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.884);
+    font-family: 'Reggae One', cursive;
+    color: red;
+    border: 1px solid red;
+    transition: ease 0.4s;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.submit i{
+    margin-right: 15px;
+}
+
+.submit:hover{
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(141, 5, 5);
+    background: rgb(141, 5, 5);
+}
+
+.submit:active{
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(141, 5, 5);
+    background: rgb(141, 5, 5);
+}
+
+#p_erro{
+    color: red;
+    font-size: 12px;
+    display: none;
+}
+
+#game{
+    position: fixed;
+    background: url("../img/bg_perfeito1.gif");
+    background-size: 50% 75%;
+    width: 100%;
+    height: 100%;
+}
+
+#bg_complement{
+    position: fixed;
+    background:  linear-gradient(to right, rgb(20, 20, 20), rgb(20, 20, 20));
+    width: 150%;
+    height: 200px;
+    bottom: 0;
+    animation: wall_anime 30s linear infinite;
+}
+
+#bg_complement2{
+    position: fixed;
+    background: url("../img/highway.jpg") no-repeat;
+    background-size: 100% 100%;
+    width: 200%;
+    height: 80px;
+    bottom: 120px;
+}
+
+@keyframes highway {
+    0%{
+        left: 105%;
+    }
+    100%{
+        left: 0%;
+    }
+}
+#points{
+    position: fixed;
+    left: 30px;
+    top: 20px;
+    width: 150px;
+    height: 30px;
+    border: 3px solid rgb(117, 12, 12);
+    background: white;
+    color: rgb(117, 12, 12);
+    font-weight: bold;
+    border-radius: 1.5rem;
+    font-size: 20px;
+}
+
+#name_jogo{
+    position: fixed;
+    left: 30px;
+    top: 60px;
+    width: 150px;
+    height: 20px;
+    border: 2px solid rgb(117, 12, 12);
+    background: none;
+    color: rgb(117, 12, 12);
+    font-weight: bold;
+    border-radius: 1.5rem;
+    font-size: 12px;
+}
+
+#record{
+    position: fixed;
+    left: 30px;
+    top: 90px;
+    width: 150px;
+    height: 20px;
+    border: 2px solid rgb(117, 12, 12);
+    background: none;
+    color: rgb(117, 12, 12);
+    font-weight: bold;
+    border-radius: 1.5rem;
+    font-size: 12px;
+}
+
+#last_score{
+    position: fixed;
+    left: 30px;
+    top: 120px;
+    width: 150px;
+    height: 40px;
+    border: 2px solid rgb(117, 12, 12);
+    background: none;
+    color: rgb(117, 12, 12);
+    font-weight: bold;
+    border-radius: 1.5rem;
+    font-size: 12px;
+}
+
+#level{
+    position: relative;
+    top: 25%;
+    color: red;
+    display: none;
+}
+
+#gamer{
+    position: absolute;
+    left: 20%;
+    bottom: 150px;
+    animation: none;
+}
+
+#killer{
+    position: absolute;
+    left: 0px;
+    bottom: 160px;
+    width: 200px;
+}
+
+
+#gamer img{
+    Width: 160px;
+}
+
+#fire{
+    position: absolute;
+    left: 15%;
+    bottom: 120px;
+    animation: none;
+    width: 280px;
+    display: none;
+}
+
+.ball{
+    position: absolute;
+    left: 100%;
+    bottom: 120px;
+    animation: none;
+}
+
+#img_ball{
+    width: 50px;
+}
+
+@keyframes falling {
+    0%{
+        left: 100%;
+        bottom: 50%;
+    }
+
+    10%{
+        left: 90%;
+        bottom: 40%;
+       
+    }
+    20%{
+        left: 95%;
+        bottom: 150px;
+    }
+    30%{
+        left: 80%;
+        bottom: 150px;
+    }
+    100%{
+        left: -10%;
+        bottom: 150px;
+    }
+}
+
+@keyframes jump {
+    0%{
+        bottom: 150px;
+        left: 20%;
+    }
+    15%{
+        bottom: 55%;
+        left: 22.5%;
+    }
+    80%{
+        bottom: 150px;
+        left: 22.5%;
+    }
+    100%{
+        bottom: 150px;
+        left: 20%;
+    }
+}
+
+@keyframes wall_anime {
+    0%{
+        left: 0%;
+    }
+    100%{
+        left: -50%;
+    }
+}
+
+@keyframes die {
+    0%{
+        opacity: 100%;
+    }
+    25%{
+        opacity: 20%;
+    }
+    50%{
+        opacity: 90%;
+    }
+    100%{
+        opacity: 0%;
+    }
+}
+
+@keyframes die_killer {
+    0%{
+        left: 0px;
+    }
+    100%{
+        left: -150px;
+    }
+}
+
+#game_over_div{
+    position: relative;
+    top: 30%;
+    color: red;
+    display: none;
+}
+
+h1{
+    color: red;
+    text-shadow: 3px 3px 3px black;
+}
+
+@media screen and (max-width: 1200px) {
+    .camada_home{
+        left: 10%;
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    p{
+        font-size: 10px;
+    }
+    
+    #killer{
+        left: -50px;
+        Width: 120px;
+    }
+
+    @keyframes die_killer {
+        0%{
+            left: -50px;
+        }
+        100%{
+            left: -150px;
+        }
+    }
+    
+    #gamer img{
+        margin-left: 20px;
+        Width: 100px;
+    }
+    
+    #fire{
+        left: 13%;
+        bottom: 120px;
+        width: 230px;
+    }
+
+    #img_ball{
+        width: 30px;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+    .camada_home{
+        top: 0;
+        height: 100%;
+        left: 0%;
+        width: 100%;
+        border: none;
+        border-radius: 0;
+    }
+
+    h1{
+        margin-top: 50px;
+        font-size: 20px;    
+    }
+    .submit{
+        margin-left: 0;
+    }
+
+    #p1{
+        margin-top: -50px;
+    }
+
+    #p2{
+        margin-top: -50px;
+    }
+}
+

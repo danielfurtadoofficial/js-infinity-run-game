@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv = "Content-Type" content = "text/html; charset=UTF-8" >
+	<title> Kasu Body Run | Register</title>
+	<link rel="stylesheet"  type="text/css" href="css/loader.css">
+	<link rel="stylesheet"  type="text/css" href="css/index.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet"  type="text/css" href="css\fontawesome-free-5.15.3-web\css\all.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@300&display=swap" rel="stylesheet">
+	<link rel="icon" type="imagem/png" href="img/killer.gif">
+	<script>
+
+		if(localStorage.getItem('register')=="done"){
+			window.location.href='start.html';
+		}
+	</script>
+	
+</head>
+<body>
+
+	<!-- :::::::::  LOADER :::::::::::::-->
+	<center>
+		<div id="loader">
+			<div class="preloader">
+				<div class="preloader__ring">
+				  <div class="preloader__sector"><p class="p_animation">L</p></div>
+				  <div class="preloader__sector"><p class="p_animation">o</p></div>
+				  <div class="preloader__sector"><p class="p_animation">a</p></div>
+				  <div class="preloader__sector"><p class="p_animation">d</p></div>
+				  <div class="preloader__sector"><p class="p_animation">i</p></div>
+				  <div class="preloader__sector"><p class="p_animation">n</p></div>
+				  <div class="preloader__sector"><p class="p_animation">g</p></div>
+				  <div class="preloader__sector"><p class="p_animation">.</p></div>
+				  <div class="preloader__sector"><p class="p_animation">.</p></div>
+				  <div class="preloader__sector"><p class="p_animation">.</p></div>
+				</div>
+			
+				<div class="preloader__ring">
+				  <div class="preloader__sector"><p class="p_animation">K</p></div>
+				  <div class="preloader__sector"><p class="p_animation">A</p></div>
+				  <div class="preloader__sector"><p class="p_animation">S</p></div>
+				  <div class="preloader__sector"><p class="p_animation">U</p></div>
+				  <div class="preloader__sector"><p class="p_animation"></p></div>
+				  <div class="preloader__sector"><p class="p_animation">B</p></div>
+				  <div class="preloader__sector"><p class="p_animation">O</p></div>
+				  <div class="preloader__sector"><p class="p_animation">D</p></div>
+				  <div class="preloader__sector"><p class="p_animation">Y</p></div>
+				  <div class="preloader__sector"><p class="p_animation"></p></div>
+				  <div class="preloader__sector"><p class="p_animation">R</p></div>
+				  <div class="preloader__sector"><p class="p_animation">U</p></div>
+				  <div class="preloader__sector"><p class="p_animation">N</p></div>
+				</div>
+			  </div>
+		</div>
+	</center>
+	<!-- :::::::::::::::::::::::::::::::-->
+    
+    <div id="home">
+		<div id="register" class="camada_home" data data-tilt="10">
+			<div class="escurecer"></div>
+			<center>
+				<br><h1 style="transform: translateZ(80px);">Register</h1>
+			
+				<form action="index.html" method="GET" style="transform: translateZ(80px);">
+					<input class="form_input" type="text" id="username" value="" name="username" placeholder="Username" autocomplete="off" autofocus="off" required><br>
+					<input class="form_input" type="text" id="name" value="" name="name" placeholder="Your Name" autocomplete="off" autofocus="off" required><br>
+					<select class="form_input" name="island" id="island" value="" placeholder="Island" autofocus="off" style="width: 205px;" required>
+						<option value="Santiago">Santiago</option>
+						<option value="Maio">Maio</option>
+						<option value="Fogo">Fogo</option>
+						<option value="Brava">Brava</option>
+						<option value="Sal">Sal</option>
+						<option value="Sao Nicolau">São Nicolau</option>
+						<option value="Boa Vista">Boa Vista</option>
+						<option value="Sao Vicente">São Vicente</option>
+						<option value="Santo Antao">Santo Antão</option>
+					</select><br><br>
+					
+					<input id="checkbox" name="checkbox" type="checkbox" required>
+					<label for="checkbox" style=" font-size: 12px;">I allow to save game data on<br> my device and send data only for statistics.</label><br>
+
+					<input class="submit" type="submit" value="Save"><br>
+					<p id="p_erro">Para prosseguir deve concordar<br> com os termos do jogo.</p>
+				</form>
+			</center>
+		</div>
+
+		<div>
+			<audio id="demo" src="audio/audio2.mp3" loop="true"></audio>
+		
+			<i id="play" style="display: none;" onclick="play()" class="fas fa-volume-mute"></i>
+			<i id="pause" class="fas fa-volume-up" onclick="pause()"></i>
+		</div>
+    </div>
+
+
+
+    <script type="text/javascript" src="js/vanilla-tilt.js"></script>
+	<script type="text/javascript" src="js/loader.js"></script>
+	<script type="text/javascript">
+		
+		let dados = location.search.slice(1);
+		console.log(dados);
+
+		if(dados!=null){
+			console.log(dados);
+			let dado = dados.split('&');
+
+			dado.forEach(function (content){
+				let key = content.split('=');
+				let param = key[0];
+				let valor = key[1];
+
+				while(valor.indexOf('+')!=-1){
+					valor = valor.replace('+', ' ');
+				}
+					
+				while(valor.indexOf('%40')!=-1){	
+					valor = valor.replace('%40', '@');
+				}
+
+				localStorage.setItem(param, valor);
+			});
+
+			//:::::::::::::::::::::::: SERVER CONNECTION :::::::::::::::::::::
+
+			//::::: UNCOMMENT TO CONNECT TO WEBSERVER:::::
+			/*
+			var request = new XMLHttpRequest();
+			request.open("GET", "http://domain.com/api/corridaObstakulo/regist.php?table=a9508&user="+localStorage.getItem('username')+"" , true);
+			
+			request.onload= function(){
+			var dados= JSON.parse(this.response);
+				
+				if(request.status>=200 && request.status<400){
+					console.log(dados);
+					if(dados.response=="OK"){
+						*/
+						localStorage.setItem("register", "done");
+						localStorage.setItem("player", "1");
+						localStorage.setItem("volume", "off");
+
+						var i=0, y=0;
+
+						for(; i<10; i++){ 
+							localStorage.setItem("record"+i, 0);
+						}
+
+						for(; y<10; y++){
+							localStorage.setItem("historico"+y, 0);
+						}
+
+						alert("Success.");
+						window.location.href='start.html';
+						
+						/*
+					}else{
+						localStorage.clear();
+						alert("Username Already Taken!");
+						window.location.href='index.html';
+					}
+
+			
+				}else{
+					console.log("Error");
+					alert("Erro de Conexão. Verifique sua Internet.");
+				}
+			}
+
+			request.send();
+
+			//:::::::::::::::::::::::: SERVER CONNECTION FINISH:::::::::::::::::::::
+
+		}
+
+	  </script>
+	  <script type="text/javascript">
+
+		function play(){
+			document.getElementById('demo').volume=0.3;
+			document.getElementById('demo').pause();
+			document.getElementById('play').style.display='none';
+			document.getElementById('pause').style.display='block';
+			localStorage.getItem('volume')=="on";
+		}
+
+		function pause(){
+			document.getElementById('demo').play();
+			document.getElementById('pause').style.display='none';
+			document.getElementById('play').style.display='block';
+			localStorage.getItem('volume')=="off";
+		}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv = "Content-Type" content = "text/html; charset=UTF-8" >
+	<title> Kasu Body Run | Game</title>
+	<link rel="stylesheet"  type="text/css" href="css/loader.css">
+	<link rel="stylesheet"  type="text/css" href="css/index.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet"  type="text/css" href="css\fontawesome-free-5.15.3-web\css\all.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@300&display=swap" rel="stylesheet">
+	<link rel="icon" type="imagem/png" href="img/killer.gif">
+	<script>
+		
+		if(localStorage.getItem('register')!="done"){
+			window.location.href='index.html';
+		}
+	</script>
+	
+</head>
+<body>
+
+	<!-- :::::::::  LOADER :::::::::::::-->
+	<center>
+		<div id="loader">
+			<div class="preloader">
+				<div class="preloader__ring">
+				  <div class="preloader__sector"><p class="p_animation">L</p></div>
+				  <div class="preloader__sector"><p class="p_animation">o</p></div>
+				  <div class="preloader__sector"><p class="p_animation">a</p></div>
+				  <div class="preloader__sector"><p class="p_animation">d</p></div>
+				  <div class="preloader__sector"><p class="p_animation">i</p></div>
+				  <div class="preloader__sector"><p class="p_animation">n</p></div>
+				  <div class="preloader__sector"><p class="p_animation">g</p></div>
+				  <div class="preloader__sector"><p class="p_animation">.</p></div>
+				  <div class="preloader__sector"><p class="p_animation">.</p></div>
+				  <div class="preloader__sector"><p class="p_animation">.</p></div>
+				</div>
+			
+				<div class="preloader__ring">
+				  <div class="preloader__sector"><p class="p_animation">K</p></div>
+				  <div class="preloader__sector"><p class="p_animation">A</p></div>
+				  <div class="preloader__sector"><p class="p_animation">S</p></div>
+				  <div class="preloader__sector"><p class="p_animation">U</p></div>
+				  <div class="preloader__sector"><p class="p_animation"></p></div>
+				  <div class="preloader__sector"><p class="p_animation">B</p></div>
+				  <div class="preloader__sector"><p class="p_animation">O</p></div>
+				  <div class="preloader__sector"><p class="p_animation">D</p></div>
+				  <div class="preloader__sector"><p class="p_animation">Y</p></div>
+				  <div class="preloader__sector"><p class="p_animation"></p></div>
+				  <div class="preloader__sector"><p class="p_animation">R</p></div>
+				  <div class="preloader__sector"><p class="p_animation">U</p></div>
+				  <div class="preloader__sector"><p class="p_animation">N</p></div>
+				</div>
+			  </div>
+		</div>
+	</center>
+	<!-- :::::::::::::::::::::::::::::::-->
+    
+    <div id="background">
+        
+        <div id="game"  onclick="jump();">
+
+			<div id="bg_complement">
+				<div id="bg_complement2"></div>
+			</div>
+
+			<div id="points"></div>
+
+			<div id="name_jogo"></div>
+
+			<div id="record"></div>
+
+			<div id="last_score"></div>
+
+			<center id="level"></center>
+
+			<img id="killer" src="img/killer.gif">
+
+			<div id="gamer"><img id="img_gamer" src=""></div>
+
+			<div id="ball1" class="ball"><img id="img_ball" src="img/bomb.gif"></div>
+
+			<img id="fire" src="img/gameover.gif">
+
+			<div id="game_over_div">
+				<center><h1> GAME OVER! </h1></center>
+			</div>
+
+			<div>
+				<audio id="demo" src="audio/audio.wav" loop="true" ></audio>
+			
+				<i id="play" style="display: none;" onclick="play()" class="fas fa-volume-mute"></i>
+				<i id="pause" class="fas fa-volume-up" onclick="pause()"></i>
+			</div>
+			
+		</div>
+
+		<audio id="explosion_audio" src="audio/explosion.mp3"></audio>
+		<audio id="jump_audio" src="audio/audio_jump.mp3"></audio>
+		
+
+    </div>
+
+
+
+    <script type="text/javascript" src="js/vanilla-tilt.js"></script>
+	<script type="text/javascript" src="js/loader.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript">
+		if(localStorage.getItem("player")==1){
+			document.getElementById("img_gamer").src="img/player1.gif";
+		}else{
+			document.getElementById("img_gamer").src="img/player2.gif";
+		}
+
+		document.getElementById("last_score").innerHTML = "<center style='margin-top: 0px;'>Last Score: "+localStorage.getItem("historico9")+"</center>";
+		document.getElementById("record").innerHTML = "<center style='margin-top: 0px;'>Best Score: "+localStorage.getItem("record9")+"</center>";
+		document.getElementById("name_jogo").innerHTML = "<center style='margin-top: 0px;'>Name: "+localStorage.getItem("name")+"</center>";
+	
+	</script>
+	
+</body>
+</html>

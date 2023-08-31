@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv = "Content-Type" content = "text/html; charset=UTF-8" >
+	<title> Kasu Body Run | History</title>
+	<link rel="stylesheet"  type="text/css" href="css/loader.css">
+	<link rel="stylesheet"  type="text/css" href="css/index.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet"  type="text/css" href="css\fontawesome-free-5.15.3-web\css\all.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@300&display=swap" rel="stylesheet">
+	<link rel="icon" type="imagem/png" href="img/killer.gif">
+	<script>
+		if(localStorage.getItem('register')!="done"){
+			window.location.href='index.html';
+		}
+	</script>
+	
+</head>
+<body>
+
+	<!-- :::::::::  LOADER :::::::::::::-->
+	<center>
+		<div id="loader">
+			<div class="preloader">
+				<div class="preloader__ring">
+				  <div class="preloader__sector"><p class="p_animation">L</p></div>
+				  <div class="preloader__sector"><p class="p_animation">o</p></div>
+				  <div class="preloader__sector"><p class="p_animation">a</p></div>
+				  <div class="preloader__sector"><p class="p_animation">d</p></div>
+				  <div class="preloader__sector"><p class="p_animation">i</p></div>
+				  <div class="preloader__sector"><p class="p_animation">n</p></div>
+				  <div class="preloader__sector"><p class="p_animation">g</p></div>
+				  <div class="preloader__sector"><p class="p_animation">.</p></div>
+				  <div class="preloader__sector"><p class="p_animation">.</p></div>
+				  <div class="preloader__sector"><p class="p_animation">.</p></div>
+				</div>
+			
+				<div class="preloader__ring">
+				  <div class="preloader__sector"><p class="p_animation">K</p></div>
+				  <div class="preloader__sector"><p class="p_animation">A</p></div>
+				  <div class="preloader__sector"><p class="p_animation">S</p></div>
+				  <div class="preloader__sector"><p class="p_animation">U</p></div>
+				  <div class="preloader__sector"><p class="p_animation"></p></div>
+				  <div class="preloader__sector"><p class="p_animation">B</p></div>
+				  <div class="preloader__sector"><p class="p_animation">O</p></div>
+				  <div class="preloader__sector"><p class="p_animation">D</p></div>
+				  <div class="preloader__sector"><p class="p_animation">Y</p></div>
+				  <div class="preloader__sector"><p class="p_animation"></p></div>
+				  <div class="preloader__sector"><p class="p_animation">R</p></div>
+				  <div class="preloader__sector"><p class="p_animation">U</p></div>
+				  <div class="preloader__sector"><p class="p_animation">N</p></div>
+				</div>
+			  </div>
+		</div>
+	</center>
+	<!-- :::::::::::::::::::::::::::::::-->
+    
+    <div id="home">
+		
+		<div id="jogo" class="camada_home" data data-tilt="10">
+			<div class="escurecer"></div>
+
+			<center style="transform: translateZ(80px);">
+				<br><h1>HISTORY</h1>
+
+				<a href="start.html"><button class="submit" style="margin-top: 0px;"><i class="fas fa-arrow-left"></i>Back</button></a><br>
+				<button class="submit"  onclick="clear_history()"><i class="fas fa-broom"></i>Clear History</button></a><br>
+
+				<div class="history">
+					<p id="historico1" class="record"></p>
+					<p id="historico2" class="record"></p>
+					<p id="historico3" class="record"></p>
+					<p id="historico4" class="record"></p>
+					<p id="historico5" class="record"></p>
+					<p id="historico6" class="record"></p>
+					<p id="historico7" class="record"></p>
+					<p id="historico8" class="record"></p>
+					<p id="historico9" class="record"></p>
+					<p id="historico10"class="record"></p>
+				</div>
+				
+			</center>
+		</div>
+    </div>
+
+	<div>
+		<audio id="demo" src="audio/audio2.mp3" loop="true"></audio>
+		<i id="play" style="display: none;" onclick="play()" class="fas fa-volume-mute"></i>
+		<i id="pause" class="fas fa-volume-up" onclick="pause()"></i>
+	</div>
+
+
+
+    <script type="text/javascript" src="js/vanilla-tilt.js"></script>
+	<script type="text/javascript" src="js/loader.js"></script>
+	<script>
+		function play(){
+			document.getElementById('demo').volume=0.3;
+			document.getElementById('demo').pause();
+			document.getElementById('play').style.display='none';
+			document.getElementById('pause').style.display='block';
+		}
+
+		function pause(){
+			document.getElementById('demo').play();
+			document.getElementById('pause').style.display='none';
+			document.getElementById('play').style.display='block';
+		}
+
+		document.getElementById('historico1').innerHTML ="1º - "+localStorage.getItem("historico9");
+		document.getElementById('historico2').innerHTML ="2º - "+localStorage.getItem("historico8");
+		document.getElementById('historico3').innerHTML ="3º - "+localStorage.getItem("historico7");
+		document.getElementById('historico4').innerHTML ="4º - "+localStorage.getItem("historico6");
+		document.getElementById('historico5').innerHTML ="5º - "+localStorage.getItem("historico5");
+		document.getElementById('historico6').innerHTML ="6º - "+localStorage.getItem("historico4");
+		document.getElementById('historico7').innerHTML ="7º - "+localStorage.getItem("historico3");
+		document.getElementById('historico8').innerHTML ="8º - "+localStorage.getItem("historico2");
+		document.getElementById('historico9').innerHTML ="9º - "+localStorage.getItem("historico1");
+		document.getElementById('historico10').innerHTML ="10º - "+localStorage.getItem("historico0");
+
+		function clear_history(){
+			localStorage.setItem("historico0", 0);
+			localStorage.setItem("historico1", 0);
+			localStorage.setItem("historico2", 0);
+			localStorage.setItem("historico3", 0);
+			localStorage.setItem("historico4", 0);
+			localStorage.setItem("historico", 0);
+			localStorage.setItem("historico6", 0);
+			localStorage.setItem("historico7", 0);
+			localStorage.setItem("historico8", 0);
+			localStorage.setItem("historico9", 0);
+			alert("Success!");
+			window.location.href='history.html';
+		}
+	</script>
+</body>
+</html>
